@@ -1,9 +1,9 @@
-public class Member extends Person{
+public class Member extends Person implements  DatabaseOBJ{
     private String memberId;
     private String membershipType;
     private String status;
 
-    public Member(){
+    public Member() {
         super();
         memberId = null;
         membershipType = null;

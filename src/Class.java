@@ -1,4 +1,4 @@
-public class Class {
+public class Class implements DatabaseOBJ {
     private String ClassID;
     private String ClassName;
     private String trainerID;
@@ -20,10 +20,14 @@ public class Class {
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
     }
-    public String lineRepresentation(){
-        return ClassID+","+ClassName+","+trainerID+","+duration;
+
+    @Override
+    public String lineRepresentation() {
+        return ClassID + "," + ClassName + "," + trainerID + "," + duration;
+
     }
 
+    @Override
     public String getSearchKey() {
         return ClassID;
     }

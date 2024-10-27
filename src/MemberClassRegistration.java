@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class MemberClassRegistration {
+public class MemberClassRegistration implements DatabaseOBJ {
     private String memberID;
     private String classID;
     private String status;
@@ -24,11 +24,15 @@ public class MemberClassRegistration {
     public LocalDate getRegistrationDate() {
         return registrationDate;
     }
-    public String getSearchKey(){
-        return memberID+classID;
+
+    @Override
+    public String getSearchKey() {
+        return memberID + classID;
     }
-    public String lineRepresentation(){
-        return memberID+","+classID+","+registrationDate+","+status;
+
+    @Override
+    public String lineRepresentation() {
+        return memberID + "," + classID + "," + registrationDate + "," + status;
     }
 
 }

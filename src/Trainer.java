@@ -1,4 +1,4 @@
-public class Trainer extends Person{
+public class Trainer extends Person implements DatabaseOBJ{
     private String trainerId;
     private String speciality;
 
