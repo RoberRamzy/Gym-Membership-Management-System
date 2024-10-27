@@ -1,3 +1,3 @@
-public class classDatabase implements {
+public class classDatabase{
 
 }
