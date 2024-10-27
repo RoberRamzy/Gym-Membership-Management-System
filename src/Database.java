@@ -8,8 +8,16 @@ import java.util.Scanner;
 public abstract class  Database {
     ArrayList<DatabaseOBJ>records;
     String fileName;
-    void readFromFile() throws FileNotFoundException {
-        records=new ArrayList<>();
+
+    public Database(String fileName) {
+        this.fileName = fileName;
+        readFromFile();
+    }
+
+    void readFromFile() {
+        try {
+            records=new ArrayList<>();
+
         File obj=new File(fileName);
         Scanner reader= new Scanner(obj);
         while(reader.hasNextLine()){
@@ -17,7 +25,10 @@ public abstract class  Database {
             DatabaseOBJ OBJ=createRecordFrom(Data);
             records.add(OBJ);
         }
-        reader.close();
+        reader.close();}catch (FileNotFoundException e) {
+            System.err.println("There was no file found in path:"+ fileName);
+            throw new RuntimeException(e);
+        }
     }
     abstract DatabaseOBJ createRecordFrom(String line);
     public ArrayList<DatabaseOBJ> returnAllRecords(){

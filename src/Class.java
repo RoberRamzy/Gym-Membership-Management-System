@@ -23,7 +23,7 @@ public class Class implements DatabaseOBJ {
 
     @Override
     public String lineRepresentation() {
-        return ClassID + "," + ClassName + "," + trainerID + "," + duration;
+        return ClassID + "," + ClassName + "," + trainerID + "," + duration+","+availableSeats;
 
     }
 
