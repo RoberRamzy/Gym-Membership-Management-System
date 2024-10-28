@@ -33,7 +33,9 @@ public class TrainerRole {
     }
 
     public void addClass (String classID, String className, String trainerID, int duration, int maxParticipants)  {
-        classDatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants));
+        if(classDatabase.contains(classID)) {
+            classDatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants));
+        }
     }
 
 

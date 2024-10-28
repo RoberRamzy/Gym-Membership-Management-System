@@ -8,7 +8,7 @@ public class AdminRole {
         Database.readFromFile();
     }
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber){
-        if(Database.contains(trainerId)) {
+        if(!Database.contains(trainerId)) {
             Trainer trainer = new Trainer(trainerId, name, email, specialty, phoneNumber);
             Database.insertRecord(trainer);
         }
