@@ -36,7 +36,7 @@ public class MemberClassRegistration implements DatabaseOBJ {
 
     @Override
     public String lineRepresentation() {
-        return memberID + "," + classID + "," + registrationDate + "," + status;
+        return memberID + "," + classID + "," + status+","+ registrationDate;
     }
 
 }

@@ -74,7 +74,7 @@ public class TrainerRole {
     }
 
     public ArrayList<MemberClassRegistration> getListOfRegistrations (){
-        ArrayList<DatabaseOBJ> records = memberDatabase.returnAllRecords();
+        ArrayList<DatabaseOBJ> records = registrationDatabase.returnAllRecords();
         ArrayList<MemberClassRegistration> classArrayList = new ArrayList<>();
         for (DatabaseOBJ obj : records) {
             String[] dataArray = obj.lineRepresentation().split(",");
@@ -104,6 +104,6 @@ public class TrainerRole {
             System.err.println("There was no file found in path for registrationDatabaase");
             throw new RuntimeException(e);
         }
-
+        System.out.println("All data Saved Successfully");
     }
 }
