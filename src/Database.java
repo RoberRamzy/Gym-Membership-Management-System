@@ -84,7 +84,8 @@ public abstract class  Database {
     public void saveToFile() throws IOException {
         FileWriter writer=new FileWriter(fileName);
         for (int i = 0; i < records.size(); i++) {
-            writer.write(records.get(i).lineRepresentation());
+            writer.write(records.get(i).lineRepresentation()+System.lineSeparator());
+
         }
         writer.close();
     }
