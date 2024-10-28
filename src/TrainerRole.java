@@ -38,7 +38,7 @@ public class TrainerRole {
 
 
     public ArrayList<Class> getListOfClasses() {
-        ArrayList<DatabaseOBJ> records = memberDatabase.returnAllRecords();
+        ArrayList<DatabaseOBJ> records = classDatabase.returnAllRecords();
         ArrayList<Class> classArrayList = new ArrayList<>();
         for (DatabaseOBJ obj : records) {
             String[] dataArray = obj.lineRepresentation().split(",");
