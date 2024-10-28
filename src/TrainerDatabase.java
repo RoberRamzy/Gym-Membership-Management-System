@@ -1,6 +1,7 @@
 public class TrainerDatabase extends Database{
     public TrainerDatabase(String fileName) {
         super(fileName);
+
     }
 
     @Override
