@@ -32,7 +32,7 @@ public class TrainerRole {
         return memberArrayList;
     }
 
-    public void Class(String classID, String className, String trainerID, int duration, int maxParticipants) {
+    public void addClass (String classID, String className, String trainerID, int duration, int maxParticipants)  {
         classDatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants));
     }
 
