@@ -8,8 +8,10 @@ public class AdminRole {
         Database.readFromFile();
     }
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber){
-        Trainer trainer=new Trainer(trainerId,name,email,specialty,phoneNumber);
-        Database.insertRecord(trainer);
+        if(Database.contains(trainerId)) {
+            Trainer trainer = new Trainer(trainerId, name, email, specialty, phoneNumber);
+            Database.insertRecord(trainer);
+        }
     }
     public ArrayList<Trainer> getListOfTrainers (){
         ArrayList<Trainer> trainers;
