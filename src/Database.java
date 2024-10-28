@@ -30,11 +30,17 @@ public abstract class  Database {
             throw new RuntimeException(e);
         }
     }
+
+
     abstract DatabaseOBJ createRecordFrom(String line);
+
+   //used to return all records in database
     public ArrayList<DatabaseOBJ> returnAllRecords(){
         return records;
 
     }
+
+
     public void contains (String key){
         boolean flag=false;
         for (int i = 0; i < records.size(); i++)
