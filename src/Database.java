@@ -41,20 +41,14 @@ public abstract class  Database {
     }
 
 
-    public void contains (String key){
-        boolean flag=false;
+    public boolean contains (String key){
         for (int i = 0; i < records.size(); i++)
         {
             if(records.get(i).getSearchKey().equalsIgnoreCase(key)){
-                System.out.println("Record exists in the list");
-                flag=true;
+                return true;
             }
-
-        }
-        if (!flag){
-            System.out.println("Record does not exist");
-
-        }
+       }
+        return false;
     }
     public DatabaseOBJ getRecord (String key){
         for (int i = 0; i < records.size(); i++)
