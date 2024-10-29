@@ -9,16 +9,14 @@ public class TrainerRole {
 
     public TrainerRole() {
         memberDatabase = new MemberDatabase("src/Member Database.txt");
-        memberDatabase.readFromFile();
         classDatabase = new ClassDatabase("src/Class Database.txt");
-        classDatabase.readFromFile();
         registrationDatabase = new MemberClassRegistrationDatabase("src/Registration Database.txt");
-        registrationDatabase.readFromFile();
     }
 
     public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
         if (!memberDatabase.contains(memberID)) {
             memberDatabase.insertRecord(new Member(memberID, name, membershipType, email, phoneNumber, status));
+            System.out.println("Data is saved" + memberDatabase.getRecord(memberID).lineRepresentation());
         }
     }
 
@@ -28,12 +26,13 @@ public class TrainerRole {
         for (DatabaseOBJ obj : records) {
             String[] dataArray = obj.lineRepresentation().split(",");
             memberArrayList.add(new Member(dataArray[0], dataArray[1], dataArray[2], dataArray[3], dataArray[4], dataArray[5]));
+            System.out.println(memberArrayList.getLast().lineRepresentation());
         }
         return memberArrayList;
     }
 
     public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
-        if (classDatabase.contains(classID)) {
+        if (!classDatabase.contains(classID)) {
             classDatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants));
         }
     }
@@ -50,20 +49,22 @@ public class TrainerRole {
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
-        Class found = (Class) classDatabase.getRecord(classID);
-        if (found.getAvailableSeats() > 0) {
-            if (!registrationDatabase.contains(memberID + classID)) {
-                registrationDatabase.insertRecord(new MemberClassRegistration(memberID, classID, "active", registrationDate));
-                found.setAvailableSeats(found.getAvailableSeats() - 1);
-                return true;
+        if (classDatabase.contains(classID)) {
+            Class found = (Class) classDatabase.getRecord(classID);
+            if (found.getAvailableSeats() > 0) {
+                if (!registrationDatabase.contains(memberID + "-" + classID)) {
+                    registrationDatabase.insertRecord(new MemberClassRegistration(memberID, classID, "active", registrationDate));
+                    found.setAvailableSeats(found.getAvailableSeats() - 1);
+                    return true;
+                }
             }
         }
         return false;
     }
 
     public boolean cancelRegistration(String memberID, String classID) {
-        if (registrationDatabase.contains(memberID + classID)) {
-            MemberClassRegistration registration = (MemberClassRegistration) registrationDatabase.getRecord(memberID + classID);
+        if (registrationDatabase.contains(memberID + "-" + classID)) {
+            MemberClassRegistration registration = (MemberClassRegistration) registrationDatabase.getRecord(memberID +"-"+classID);
             LocalDate registrationDate = registration.getRegistrationDate();
             LocalDate dateThreeDaysFromRegistration = registrationDate.plusDays(3);
             if (LocalDate.now().isBefore(dateThreeDaysFromRegistration)) {

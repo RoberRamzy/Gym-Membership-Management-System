@@ -18,11 +18,11 @@ public abstract class  Database {
         try {
             records=new ArrayList<>();
 
-        File obj=new File(fileName);
-        Scanner reader= new Scanner(obj);
-        while(reader.hasNextLine()){
+            File obj=new File(fileName);
+            Scanner reader= new Scanner(obj);
+            while(reader.hasNextLine()){
             String Data=reader.nextLine();
-            DatabaseOBJ OBJ=createRecordFrom(Data);
+            DatabaseOBJ OBJ= createRecordFrom(Data);
             records.add(OBJ);
         }
         reader.close();}catch (FileNotFoundException e) {
