@@ -43,5 +43,11 @@ public class AdminRoleWindow extends JFrame{
                 TrainerWindow trainer=new TrainerWindow(Admin);
             }
         });
+        RemoveTrainer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DeleteTrainer trainer=new DeleteTrainer(Admin);
+            }
+        });
     }
 }
