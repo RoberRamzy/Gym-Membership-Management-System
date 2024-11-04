@@ -18,12 +18,14 @@ public class DeleteTrainer extends JFrame{
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container10);
-        String Key=TextTrainerId.getText();
+
         RemoveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String Key=TextTrainerId.getText();
                 boolean flag=false;
                 for (int i = 0; i < Admin.getListOfTrainers().size(); i++) {
+
                     if(Admin.getListOfTrainers().get(i).getSearchKey().equals(Key)){
                         flag=true;
                         Admin.removeTrainer(Key);

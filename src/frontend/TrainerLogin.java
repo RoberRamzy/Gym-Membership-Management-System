@@ -28,23 +28,16 @@ public class TrainerLogin extends JFrame{
                 String username=UsernameInput.getText();
                 String password=new String(trainerPass.getPassword());
                 System.out.println("entered");
-                if(username.isEmpty()){
-                    JOptionPane.showMessageDialog(container7,"Enter a Username");
-                }
-                if(password.isEmpty()) {
-                    JOptionPane.showMessageDialog(container7,"Enter a password");
-                }
-                if(username.equals(TRAINER_USERNAME)&&password.equals(TRAINER_PASSWORD)){
+                if(username.isEmpty()||password.isEmpty()){
+                    JOptionPane.showMessageDialog(container7,"Some fields are empty","Message",JOptionPane.WARNING_MESSAGE);
+
+                }else if(username.equals(TRAINER_USERNAME)&&password.equals(TRAINER_PASSWORD)){
                     JOptionPane.showMessageDialog(container7,"Welcome");
+
                 }else {
                     JOptionPane.showMessageDialog(container7,"Wrong username or password");
                 }
             }
         });
-    }
-
-    public static void main(String[] args) {
-        TrainerLogin page=new TrainerLogin();
-
     }
 }

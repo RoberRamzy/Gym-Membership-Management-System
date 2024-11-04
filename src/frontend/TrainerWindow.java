@@ -38,20 +38,20 @@ public class TrainerWindow extends JFrame {
                 String PhoneNumber=TextPhoneNumber.getText();
                 String ID=TextId.getText();
                 boolean flag=false;
-                /*if(Name.isEmpty()||Email.isEmpty()||Speciality.isEmpty()||PhoneNumber.isEmpty()||ID.isEmpty()){
+                if(Name.isEmpty()||Email.isEmpty()||Speciality.isEmpty()||PhoneNumber.isEmpty()||ID.isEmpty()){
                     JOptionPane.showMessageDialog(Container4,"Some fields are empty","Message",JOptionPane.WARNING_MESSAGE);
-                }*/
-                for (int i = 0; i < Admin.getListOfTrainers().size(); i++) {
-                    if(Admin.getListOfTrainers().get(i).getSearchKey().equalsIgnoreCase(ID)){
-                        JOptionPane.showMessageDialog(Container4,"The Trainer with ID = "+ID+" already exists!","Message",JOptionPane.WARNING_MESSAGE);
-                        flag=true;
+                }else {
+                    for (int i = 0; i < Admin.getListOfTrainers().size(); i++) {
+                        if (Admin.getListOfTrainers().get(i).getSearchKey().equalsIgnoreCase(ID)) {
+                            JOptionPane.showMessageDialog(Container4, "The Trainer with ID = " + ID + " already exists!", "Message", JOptionPane.WARNING_MESSAGE);
+                            flag = true;
+                        }
+                    }
+                    if (!flag) {
+                        Admin.addTrainer(ID, Name, Email, Speciality, PhoneNumber);
+                        JOptionPane.showMessageDialog(Container4, "The TRainer with ID = " + ID + "has successfully added", "Message", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }
-                if(!flag){
-                    Admin.addTrainer(ID,Name,Email,Speciality,PhoneNumber);
-                    JOptionPane.showMessageDialog(Container4,"The TRainer with ID = "+ID+"has successfully added","Message",JOptionPane.INFORMATION_MESSAGE);
-                }
-
             }
         });
     }
