@@ -4,15 +4,17 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import static constants.FileNames.*;
+
 public class TrainerRole {
     private MemberDatabase memberDatabase;
     private ClassDatabase classDatabase;
     private MemberClassRegistrationDatabase registrationDatabase;
 
     public TrainerRole() {
-        memberDatabase = new MemberDatabase("src/Member Database.txt");
-        classDatabase = new ClassDatabase("src/Class Database.txt");
-        registrationDatabase = new MemberClassRegistrationDatabase("src/Registration Database.txt");
+        memberDatabase = new MemberDatabase(MEMBER_FILENAME);
+        classDatabase = new ClassDatabase(CLASS_FILENAME);
+        registrationDatabase = new MemberClassRegistrationDatabase(REGISTRATION_FILENAME);
     }
 
     public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {

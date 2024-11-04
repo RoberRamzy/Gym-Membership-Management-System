@@ -3,10 +3,12 @@ package backend;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static constants.FileNames.TRAINER_FILENAME;
+
 public class AdminRole {
     private TrainerDatabase Database;
     public AdminRole(){
-        Database=new TrainerDatabase("src/trainerDatabase");
+        Database=new TrainerDatabase(TRAINER_FILENAME);
         Database.readFromFile();
     }
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber){
