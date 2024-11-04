@@ -3,26 +3,34 @@ package frontend;
 import backend.AdminRole;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class AdminRoleWindow {
+public class AdminRoleWindow extends JFrame{
     private JButton AddTrainer;
     private JButton RemoveTrainer;
     private JButton ViewTrainers;
     private JButton Logout;
     private JPanel Container3;
     private AdminRole Admin;
+
     public AdminRoleWindow() {
+
+        setTitle("Admin Login");
+        setVisible(true);
+        setSize(new Dimension(500,450));
+        setContentPane(Container3);
         Admin=new AdminRole();
-        /*Log out*/
+        /*Logout*/
         Logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     Admin.logout();
-                    JOptionPane.showMessageDialog(Container3,"Log out successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(Container3,"Logout successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                    setVisible(false);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }

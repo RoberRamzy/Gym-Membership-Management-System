@@ -28,24 +28,19 @@ public class AdminLogin extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String username=UsernameInput.getText();
                 String password=new String(adminPass.getPassword());
-                System.out.println("entered");
-                if(username.isEmpty()){
-                    JOptionPane.showMessageDialog(container2,"Enter a Username");
-                }
-                if(password.isEmpty()) {
-                    JOptionPane.showMessageDialog(container2,"Enter a password");
-                }
-                if(username.equals(ADMIN_USERNAME)&&password.equals(ADMIN_PASSWORD)){
+
+                if(username.isEmpty()||password.isEmpty()){
+                    JOptionPane.showMessageDialog(container2,"Some fields are empty","Message",JOptionPane.WARNING_MESSAGE);
+                }else if(username.equals(ADMIN_USERNAME)&&password.equals(ADMIN_PASSWORD)){
                     JOptionPane.showMessageDialog(container2,"Welcome");
+                    setVisible(false);
+                    AdminRoleWindow nextwindow=new AdminRoleWindow();
                 }else {
-                    JOptionPane.showMessageDialog(container2,"Wrong username or password");
+                    JOptionPane.showMessageDialog(container2,"Wrong username or password!","Message",JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
     }
 
-    public static void main(String[] args) {
-        AdminLogin page=new AdminLogin();
 
-    }
 }
