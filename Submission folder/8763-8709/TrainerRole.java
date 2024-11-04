@@ -8,9 +8,9 @@ public class TrainerRole {
     private MemberClassRegistrationDatabase registrationDatabase;
 
     public TrainerRole() {
-        memberDatabase = new MemberDatabase("src/Member Database.txt");
-        classDatabase = new ClassDatabase("src/Class Database.txt");
-        registrationDatabase = new MemberClassRegistrationDatabase("src/Registration Database.txt");
+        memberDatabase = new MemberDatabase("Member Database.txt");
+        classDatabase = new ClassDatabase("Class Database.txt");
+        registrationDatabase = new MemberClassRegistrationDatabase("Registration Database.txt");
     }
 
     public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
@@ -47,12 +47,12 @@ public class TrainerRole {
         }
         return classArrayList;
     }
-
+/*member validation + checking if canceled member*/
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
         if (classDatabase.contains(classID)) {
             Class found = (Class) classDatabase.getRecord(classID);
             if (found.getAvailableSeats() > 0) {
-                if (!registrationDatabase.contains(memberID + "-" + classID)) {
+                if (!registrationDatabase.contains(memberID + classID)) {
                     registrationDatabase.insertRecord(new MemberClassRegistration(memberID, classID, "active", registrationDate));
                     found.setAvailableSeats(found.getAvailableSeats() - 1);
                     return true;
@@ -63,8 +63,8 @@ public class TrainerRole {
     }
 
     public boolean cancelRegistration(String memberID, String classID) {
-        if (registrationDatabase.contains(memberID + "-" + classID)) {
-            MemberClassRegistration registration = (MemberClassRegistration) registrationDatabase.getRecord(memberID +"-"+classID);
+        if (registrationDatabase.contains(memberID  + classID)) {
+            MemberClassRegistration registration = (MemberClassRegistration) registrationDatabase.getRecord(memberID +classID);
             LocalDate registrationDate = registration.getRegistrationDate();
             LocalDate dateThreeDaysFromRegistration = registrationDate.plusDays(3);
             if (LocalDate.now().isBefore(dateThreeDaysFromRegistration)) {

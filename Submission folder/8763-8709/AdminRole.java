@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class AdminRole {
     private TrainerDatabase Database;
     public AdminRole(){
-        Database=new TrainerDatabase("src/trainerDatabase");
+        Database=new TrainerDatabase("trainerDatabase");
         Database.readFromFile();
     }
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber){

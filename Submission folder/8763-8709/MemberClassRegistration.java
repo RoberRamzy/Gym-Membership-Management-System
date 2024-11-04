@@ -32,7 +32,7 @@ public class MemberClassRegistration implements DatabaseOBJ {
     @Override
     public String getSearchKey() {
 
-        return  memberID+"-"+classID;
+        return  memberID+classID;
     }
 
     @Override
