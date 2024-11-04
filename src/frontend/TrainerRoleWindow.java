@@ -6,12 +6,16 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class TrainerRoleWindow
- extends JFrame{
-    private JButton AddTrainer;
-    private JButton RemoveTrainer;
-    private JButton ViewTrainers;
+public class TrainerRoleWindow extends JFrame{
+    private JPanel Container12;
+    private JButton AddMember;
+    private JButton ViewMembers;
+    private JButton AddClass;
     private JButton Logout;
+    private JButton ViewClasses;
+    private JButton RegisterMemberForClass;
+    private JButton CancelRegistration;
+    private JButton ViewRegistration;
     private JPanel Container8;
     private TrainerRole trainer;
 
