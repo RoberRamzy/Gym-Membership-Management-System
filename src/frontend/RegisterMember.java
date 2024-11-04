@@ -15,8 +15,7 @@ public class RegisterMember extends JFrame{
     private JDateChooser RegistrationDateChooser;
 
     private void createUIComponents() {
-        RegistrationDateChooser = new JDateChooser(); // Instantiate your custom component
-        // Set any properties for the date chooser here, if needed
+        RegistrationDateChooser = new JDateChooser();
     }
     public RegisterMember() {
     }
