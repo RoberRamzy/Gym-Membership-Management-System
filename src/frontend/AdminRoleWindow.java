@@ -30,10 +30,17 @@ public class AdminRoleWindow extends JFrame{
                 try {
                     Admin.logout();
                     JOptionPane.showMessageDialog(Container3,"Logout successfully","Success",JOptionPane.INFORMATION_MESSAGE);
-                    setVisible(false);
+                    dispose();
+                    MainWindow MainWindow=new MainWindow();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        AddTrainer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TrainerWindow trainer=new TrainerWindow(Admin);
             }
         });
     }

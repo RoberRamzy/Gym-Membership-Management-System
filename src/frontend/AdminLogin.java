@@ -33,7 +33,7 @@ public class AdminLogin extends JFrame{
                     JOptionPane.showMessageDialog(container2,"Some fields are empty","Message",JOptionPane.WARNING_MESSAGE);
                 }else if(username.equals(ADMIN_USERNAME)&&password.equals(ADMIN_PASSWORD)){
                     JOptionPane.showMessageDialog(container2,"Welcome");
-                    setVisible(false);
+                    dispose();
                     AdminRoleWindow nextwindow=new AdminRoleWindow();
                 }else {
                     JOptionPane.showMessageDialog(container2,"Wrong username or password!","Message",JOptionPane.WARNING_MESSAGE);

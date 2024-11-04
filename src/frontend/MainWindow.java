@@ -22,7 +22,7 @@ public class MainWindow extends JFrame{
         AdminRole.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
+                dispose();
                 AdminLogin adminLogin=new AdminLogin();
                 
             }

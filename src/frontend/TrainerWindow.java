@@ -4,10 +4,11 @@ import backend.AdminRole;
 import backend.Trainer;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TrainerWindow {
+public class TrainerWindow extends JFrame {
     private JButton AddButton;
     private JTextField TextId;
     private JLabel Id;
@@ -22,18 +23,24 @@ public class TrainerWindow {
     private JTextField TextPhoneNumber;
 
     public TrainerWindow(AdminRole Admin) {
+        setTitle("Main Window");
+        setVisible(true);
+        setSize(new Dimension(500,450));
+        setContentPane(Container4);
+
         AddButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String Name=TextName.getName();
+
+                String Name=TextName.getText();
                 String Email=TextEmail.getText();
                 String Speciality=TextSpeciality.getText();
                 String PhoneNumber=TextPhoneNumber.getText();
                 String ID=TextId.getText();
                 boolean flag=false;
-                if(Name.isEmpty()||Email.isEmpty()||Speciality.isEmpty()||PhoneNumber.isEmpty()||ID.isEmpty()){
+                /*if(Name.isEmpty()||Email.isEmpty()||Speciality.isEmpty()||PhoneNumber.isEmpty()||ID.isEmpty()){
                     JOptionPane.showMessageDialog(Container4,"Some fields are empty","Message",JOptionPane.WARNING_MESSAGE);
-                }
+                }*/
                 for (int i = 0; i < Admin.getListOfTrainers().size(); i++) {
                     if(Admin.getListOfTrainers().get(i).getSearchKey().equalsIgnoreCase(ID)){
                         JOptionPane.showMessageDialog(Container4,"The Trainer with ID = "+ID+" already exists!","Message",JOptionPane.WARNING_MESSAGE);
