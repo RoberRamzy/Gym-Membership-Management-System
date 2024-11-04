@@ -1,3 +1,5 @@
+package backend;
+
 public class Class implements DatabaseOBJ {
     private String ClassID;
     private String ClassName;

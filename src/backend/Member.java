@@ -1,3 +1,5 @@
+package backend;
+
 public class Member extends Person implements  DatabaseOBJ{
     private String memberId;
     private String membershipType;

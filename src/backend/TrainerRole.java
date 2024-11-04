@@ -1,3 +1,5 @@
+package backend;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,24 +35,24 @@ public class TrainerRole {
 
     public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
         if (!classDatabase.contains(classID)) {
-            classDatabase.insertRecord(new Class(classID, className, trainerID, duration, maxParticipants));
+            classDatabase.insertRecord(new backend.Class(classID, className, trainerID, duration, maxParticipants));
         }
     }
 
 
-    public ArrayList<Class> getListOfClasses() {
+    public ArrayList<backend.Class> getListOfClasses() {
         ArrayList<DatabaseOBJ> records = classDatabase.returnAllRecords();
-        ArrayList<Class> classArrayList = new ArrayList<>();
+        ArrayList<backend.Class> classArrayList = new ArrayList<>();
         for (DatabaseOBJ obj : records) {
             String[] dataArray = obj.lineRepresentation().split(",");
-            classArrayList.add(new Class(dataArray[0], dataArray[1], dataArray[2], Integer.parseInt(dataArray[3]), Integer.parseInt(dataArray[4])));
+            classArrayList.add(new backend.Class(dataArray[0], dataArray[1], dataArray[2], Integer.parseInt(dataArray[3]), Integer.parseInt(dataArray[4])));
         }
         return classArrayList;
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
         if (classDatabase.contains(classID)) {
-            Class found = (Class) classDatabase.getRecord(classID);
+            backend.Class found = (backend.Class) classDatabase.getRecord(classID);
             if (found.getAvailableSeats() > 0) {
                 if (!registrationDatabase.contains(memberID + "-" + classID)) {
                     registrationDatabase.insertRecord(new MemberClassRegistration(memberID, classID, "active", registrationDate));
@@ -69,7 +71,7 @@ public class TrainerRole {
             LocalDate dateThreeDaysFromRegistration = registrationDate.plusDays(3);
             if (LocalDate.now().isBefore(dateThreeDaysFromRegistration)) {
                 registration.setRegistrationStatus("canceled");
-                Class found = (Class) classDatabase.getRecord(classID);
+                backend.Class found = (Class) classDatabase.getRecord(classID);
                 found.setAvailableSeats(found.getAvailableSeats() + 1);
                 return true;
             }

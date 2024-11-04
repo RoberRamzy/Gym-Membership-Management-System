@@ -8,9 +8,9 @@ public class TrainerRole {
     private MemberClassRegistrationDatabase registrationDatabase;
 
     public TrainerRole() {
-        memberDatabase = new MemberDatabase("Member Database.txt");
-        classDatabase = new ClassDatabase("Class Database.txt");
-        registrationDatabase = new MemberClassRegistrationDatabase("Registration Database.txt");
+        memberDatabase = new MemberDatabase("backend/Member Database.txt");
+        classDatabase = new ClassDatabase("backend/Class Database.txt");
+        registrationDatabase = new MemberClassRegistrationDatabase("backend/Registration Database.txt");
     }
 
     public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {

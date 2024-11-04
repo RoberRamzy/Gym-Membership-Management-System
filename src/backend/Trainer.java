@@ -1,3 +1,5 @@
+package backend;
+
 public class Trainer extends Person implements DatabaseOBJ{
     private String trainerId;
     private String speciality;

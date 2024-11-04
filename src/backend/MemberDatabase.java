@@ -1,3 +1,5 @@
+package backend;
+
 public class MemberDatabase extends Database{
     public MemberDatabase(String fileName) {
         super(fileName);
