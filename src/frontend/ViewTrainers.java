@@ -1,8 +1,11 @@
 package frontend;
 
-import backend.TrainerRole ;
+import backend.AdminRole ;
+import backend.Trainer;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 
 public class ViewTrainers extends JFrame{
     private JPanel Container11;
@@ -23,15 +26,15 @@ public class ViewTrainers extends JFrame{
 
             table1 = new JTable(model);
             scrollpanel = new JScrollPane(table1);
+            add(scrollpanel);
 
-
-
-
+            AdminRole adminRole = new AdminRole();
+            ArrayList<Trainer> trainers = adminRole.getListOfTrainers();
+            for (Trainer trainer : trainers){
+                String [] args = trainer.lineRepresentation().split(",");
+                model.addRow(new Object[] {args[0],args[1],args[2],args[3],args[4]} );
+            }
             setVisible(true);
-        }
-
-        public static void main(String[] args) {
-            SwingUtilities.invokeLater(ViewTrainers::new);
         }
 
 
