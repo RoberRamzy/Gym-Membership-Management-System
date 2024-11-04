@@ -9,7 +9,7 @@ import static constants.LoginCredentials.ADMIN_PASSWORD;
 import static constants.LoginCredentials.ADMIN_USERNAME;
 
 public class AdminLogin extends JFrame{
-    private JPanel panel1;
+    private JPanel container2;
     private JButton loginButton;
     private JLabel Usernamelabel;
     private JLabel adminPassLabel;
@@ -18,9 +18,10 @@ public class AdminLogin extends JFrame{
 
 
     public AdminLogin() {
+        setTitle("Admin Login");
         setVisible(true);
         setSize(new Dimension(500,450));
-        setContentPane(panel1);
+        setContentPane(container2);
 
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -29,15 +30,15 @@ public class AdminLogin extends JFrame{
                 String password=new String(adminPass.getPassword());
                 System.out.println("entered");
                 if(username.isEmpty()){
-                    JOptionPane.showMessageDialog(panel1,"Enter a text");
+                    JOptionPane.showMessageDialog(container2,"Enter a Username");
                 }
                 if(password.isEmpty()) {
-                    JOptionPane.showMessageDialog(panel1,"Enter a password");
+                    JOptionPane.showMessageDialog(container2,"Enter a password");
                 }
                 if(username.equals(ADMIN_USERNAME)&&password.equals(ADMIN_PASSWORD)){
-                    JOptionPane.showMessageDialog(panel1,"Welcome");
+                    JOptionPane.showMessageDialog(container2,"Welcome");
                 }else {
-                    JOptionPane.showMessageDialog(panel1,"Wrong username or password");
+                    JOptionPane.showMessageDialog(container2,"Wrong username or password");
                 }
             }
         });
