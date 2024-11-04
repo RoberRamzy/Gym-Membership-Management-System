@@ -1,5 +1,7 @@
 package frontend;
 
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.*;
 
 public class RegisterMember {
@@ -10,4 +12,5 @@ public class RegisterMember {
     private JLabel ClassId;
     private JTextField TextClassId;
     private JLabel RegistrationDate;
+    private JDateChooser RegistrationDateChooser;
 }
