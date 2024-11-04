@@ -13,7 +13,7 @@ public class ViewTrainers extends JFrame{
     private JScrollPane scrollpanel;
 
     public ViewTrainers() {
-            setTitle("Data Table Example");
+            setTitle("View Trainers");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setSize(600, 400);
 
