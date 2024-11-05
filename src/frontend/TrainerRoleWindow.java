@@ -60,6 +60,10 @@ public class TrainerRoleWindow extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 trainer.logout();
+                JOptionPane.showMessageDialog(Container12,"Logout successfully","Success",JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+                MainWindow MainWindow=new MainWindow();
+
             }
         });
         ViewMembers.addActionListener(new ActionListener() {

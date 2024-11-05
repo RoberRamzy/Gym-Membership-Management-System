@@ -12,7 +12,7 @@ public class ViewTrainers extends JFrame{
     private JTable table1;
     private JScrollPane scrollpanel;
 
-    public ViewTrainers() {
+    public ViewTrainers(AdminRole adminRole) {
             setTitle("View Trainers");
             setSize(600, 400);
 
@@ -27,7 +27,7 @@ public class ViewTrainers extends JFrame{
             scrollpanel = new JScrollPane(table1);
             add(scrollpanel);
 
-            AdminRole adminRole = new AdminRole();
+
             ArrayList<Trainer> trainers = adminRole.getListOfTrainers();
             for (Trainer trainer : trainers){
                 String [] args = trainer.lineRepresentation().split(",");
