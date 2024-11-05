@@ -26,7 +26,7 @@ public class AddMember extends JFrame{
     public AddMember (TrainerRole trainer) {
         setTitle("Add Member");
         setVisible(true);
-        setSize(new Dimension(500,450));
+        setSize(new Dimension(500,550));
         setContentPane(container5);
         AddButton.addActionListener(new ActionListener() {
             @Override
