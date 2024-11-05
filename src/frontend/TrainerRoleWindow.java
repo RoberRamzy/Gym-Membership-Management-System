@@ -23,7 +23,7 @@ public class TrainerRoleWindow extends JFrame{
 
     public TrainerRoleWindow (){
 
-        setTitle("Trainer widow");
+        setTitle("Trainer window");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container12);
@@ -50,7 +50,7 @@ public class TrainerRoleWindow extends JFrame{
         CancelRegistration.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*delete registeration is messing*/
+                CancelRegistration cancelRegistration=new CancelRegistration(trainer);
             }
         });
         Logout.addActionListener(new ActionListener() {

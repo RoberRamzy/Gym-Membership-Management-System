@@ -35,8 +35,13 @@ public class RegisterMember extends JFrame{
                 String memID= TextMemberId.getText();
                 String classID=TextClassId.getText();
                 Date Date=RegistrationDateChooser.getDate();
-                LocalDate localDate = Date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                if(memID.isEmpty()||classID.isEmpty()||Date==null){
+                LocalDate localDate;
+                if (Date==null){
+                    localDate=LocalDate.now();
+                }else {
+                    localDate = Date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                }
+                if(memID.isEmpty()||classID.isEmpty()){
                     JOptionPane.showMessageDialog(Container9,"Some fields are missing","Message",JOptionPane.WARNING_MESSAGE);
                 }else if(trainer.registerMemberForClass(memID,classID, localDate)) {
                     JOptionPane.showMessageDialog(Container9,"Class registered successfully","Message",JOptionPane.INFORMATION_MESSAGE);
