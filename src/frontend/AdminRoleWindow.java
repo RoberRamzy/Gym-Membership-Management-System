@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class AdminRoleWindow extends JFrame{
@@ -20,6 +22,7 @@ public class AdminRoleWindow extends JFrame{
 
         setTitle("Admin window");
         setVisible(true);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(new Dimension(500,450));
         setContentPane(Container3);
         Admin=new AdminRole();
@@ -54,6 +57,21 @@ public class AdminRoleWindow extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ViewTrainers viewTrainers = new ViewTrainers();
+            }
+        });
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                try {
+                    Admin.logout();
+                    dispose();
+                    MainWindow MainWindow=new MainWindow();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
             }
         });
     }

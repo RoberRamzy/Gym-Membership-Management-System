@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 
 public class TrainerRoleWindow extends JFrame{
@@ -25,6 +27,7 @@ public class TrainerRoleWindow extends JFrame{
 
         setTitle("Trainer window");
         setVisible(true);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(new Dimension(500,450));
         setContentPane(Container12);
         trainer=new TrainerRole();
@@ -77,5 +80,17 @@ public class TrainerRoleWindow extends JFrame{
                 ViewRegistrations viewRegistration=new ViewRegistrations(trainer);
             }
         });
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                trainer.logout();
+                MainWindow mainWindow = new MainWindow();
+            }
+        });
     }
+
+
+
 }
