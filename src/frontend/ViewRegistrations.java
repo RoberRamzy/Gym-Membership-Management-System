@@ -14,7 +14,6 @@ public class ViewRegistrations extends JFrame{
 
     public ViewRegistrations(TrainerRole trainer) {
         setTitle("View Trainers");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
 
         DefaultTableModel model = new DefaultTableModel();
