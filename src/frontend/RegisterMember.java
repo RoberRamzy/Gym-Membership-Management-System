@@ -4,9 +4,12 @@ import backend.TrainerRole;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 public class RegisterMember extends JFrame{
     private JButton RegisterButton;
@@ -22,18 +25,23 @@ public class RegisterMember extends JFrame{
         RegistrationDateChooser = new JDateChooser();
     }
     public RegisterMember(TrainerRole trainer) {
+        setTitle("Trainer widow");
+        setVisible(true);
+        setSize(new Dimension(500,450));
+        setContentPane(Container9);
         RegisterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String memID= TextMemberId.getText();
                 String classID=TextClassId.getText();
-                String Date=RegistrationDateChooser.getDateFormatString();
-                if(memID.isEmpty()||classID.isEmpty()||Date.isEmpty()){
-                    JOptionPane.showMessageDialog(Container9,"Some fields are missing");
-                }else if(trainer.registerMemberForClass(memID,classID, LocalDate.parse(Date))) {
-                    /*data added*/
+                Date Date=RegistrationDateChooser.getDate();
+                LocalDate localDate = Date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                if(memID.isEmpty()||classID.isEmpty()||Date==null){
+                    JOptionPane.showMessageDialog(Container9,"Some fields are missing","Message",JOptionPane.WARNING_MESSAGE);
+                }else if(trainer.registerMemberForClass(memID,classID, localDate)) {
+                    JOptionPane.showMessageDialog(Container9,"Class registered successfully","Message",JOptionPane.INFORMATION_MESSAGE);
                 }else{
-                    /*data is not added*/
+                    JOptionPane.showMessageDialog(Container9,"Register failed","Message",JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
