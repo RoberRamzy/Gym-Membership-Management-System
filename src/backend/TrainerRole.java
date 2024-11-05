@@ -72,7 +72,7 @@ public class TrainerRole {
             LocalDate registrationDate = registration.getRegistrationDate();
             LocalDate dateThreeDaysFromRegistration = registrationDate.plusDays(3);
             if (LocalDate.now().isBefore(dateThreeDaysFromRegistration)) {
-                registration.setRegistrationStatus("canceled");
+                registrationDatabase.deleteRecord(registration.getSearchKey());
                 backend.Class found = (Class) classDatabase.getRecord(classID);
                 found.setAvailableSeats(found.getAvailableSeats() + 1);
                 return true;
