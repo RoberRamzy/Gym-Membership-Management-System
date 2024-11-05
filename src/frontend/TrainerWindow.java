@@ -23,7 +23,7 @@ public class TrainerWindow extends JFrame {
     private JTextField TextPhoneNumber;
 
     public TrainerWindow(AdminRole Admin) {
-        setTitle("Main Window");
+        setTitle("Add Trainer");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container4);

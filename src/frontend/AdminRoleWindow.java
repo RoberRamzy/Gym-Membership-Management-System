@@ -18,7 +18,7 @@ public class AdminRoleWindow extends JFrame{
 
     public AdminRoleWindow() {
 
-        setTitle("Admin Login");
+        setTitle("Admin window");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container3);
@@ -47,6 +47,13 @@ public class AdminRoleWindow extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 DeleteTrainer trainer=new DeleteTrainer(Admin);
+            }
+        });
+
+        ViewTrainers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewTrainers viewTrainers = new ViewTrainers();
             }
         });
     }

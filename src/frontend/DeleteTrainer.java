@@ -14,7 +14,7 @@ public class DeleteTrainer extends JFrame{
     private JPanel Container10;
 
     public DeleteTrainer(AdminRole Admin) {
-        setTitle("Admin Login");
+        setTitle("Remove Trainer");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container10);

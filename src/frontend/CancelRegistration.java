@@ -16,7 +16,7 @@ public class CancelRegistration extends JFrame {
     private JTextField TextClassId;
 
     public CancelRegistration(TrainerRole trainer) {
-        setTitle("Trainer window");
+        setTitle("Delete registration");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container10);

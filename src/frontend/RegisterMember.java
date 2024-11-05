@@ -25,7 +25,7 @@ public class RegisterMember extends JFrame{
         RegistrationDateChooser = new JDateChooser();
     }
     public RegisterMember(TrainerRole trainer) {
-        setTitle("Trainer widow");
+        setTitle("Register Member");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(Container9);

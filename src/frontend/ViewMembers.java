@@ -12,8 +12,7 @@ public class ViewMembers extends JFrame{
     private JScrollPane scrollpanel;
 
     public ViewMembers(TrainerRole trainer) {
-        setTitle("View Trainers");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("View Members");
         setSize(600, 400);
 
         DefaultTableModel model = new DefaultTableModel();

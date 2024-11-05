@@ -14,8 +14,7 @@ public class ViewClasses extends JFrame{
     private JPanel Container14;
 
     public ViewClasses(TrainerRole trainer) {
-        setTitle("View Trainers");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("View Classes");
         setSize(600, 400);
 
         DefaultTableModel model = new DefaultTableModel();

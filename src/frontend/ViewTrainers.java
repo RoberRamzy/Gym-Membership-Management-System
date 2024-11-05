@@ -14,7 +14,6 @@ public class ViewTrainers extends JFrame{
 
     public ViewTrainers() {
             setTitle("View Trainers");
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setSize(600, 400);
 
             DefaultTableModel model = new DefaultTableModel();

@@ -24,7 +24,7 @@ public class AddMember extends JFrame{
     private JTextField TextStatus;
 
     public AddMember (TrainerRole trainer) {
-        setTitle("Trainer widow");
+        setTitle("Add Member");
         setVisible(true);
         setSize(new Dimension(500,450));
         setContentPane(container5);
