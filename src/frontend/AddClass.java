@@ -48,6 +48,7 @@ public class AddClass extends JFrame {
                     }
                 }
                 if(!flag){
+                    trainer.addClass(ID,ClassName,TrainerID,Integer.parseInt(Duration),Integer.parseInt(maxPart));
                     JOptionPane.showMessageDialog(Container6, "The Class with ID = " + ID + " added", "Message", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                 }

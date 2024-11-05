@@ -56,7 +56,7 @@ public class AdminRoleWindow extends JFrame{
         ViewTrainers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ViewTrainers viewTrainers = new ViewTrainers();
+                ViewTrainers viewTrainers = new ViewTrainers(Admin);
             }
         });
 
