@@ -1,8 +1,12 @@
 package frontend;
 
+import backend.TrainerRole;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 public class RegisterMember extends JFrame{
     private JButton RegisterButton;
@@ -17,6 +21,21 @@ public class RegisterMember extends JFrame{
     private void createUIComponents() {
         RegistrationDateChooser = new JDateChooser();
     }
-    public RegisterMember() {
+    public RegisterMember(TrainerRole trainer) {
+        RegisterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String memID= TextMemberId.getText();
+                String classID=TextClassId.getText();
+                String Date=RegistrationDateChooser.getDateFormatString();
+                if(memID.isEmpty()||classID.isEmpty()||Date.isEmpty()){
+                    JOptionPane.showMessageDialog(Container9,"Some fields are missing");
+                }else if(trainer.registerMemberForClass(memID,classID, LocalDate.parse(Date))) {
+                    /*data added*/
+                }else{
+                    /*data is not added*/
+                }
+            }
+        });
     }
 }
