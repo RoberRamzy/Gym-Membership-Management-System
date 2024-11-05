@@ -1,41 +1,39 @@
 package frontend;
 
 import backend.Member;
+import backend.MemberClassRegistration;
 import backend.TrainerRole;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
-public class ViewMembers extends JFrame{
+public class ViewRegistrations extends JFrame{
     private JTable table1;
     private JScrollPane scrollpanel;
+    private JPanel Container15;
 
-    public ViewMembers() {
+    public ViewRegistrations() {
         setTitle("View Trainers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
 
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Id");
-        model.addColumn("Name");
-        model.addColumn("Email");
-        model.addColumn("Membership type");
-        model.addColumn("Phone Number");
-        model.addColumn("Status");
+        model.addColumn("Member Id");
+        model.addColumn("Class Id");
+        model.addColumn("Registration Date");
 
         table1 = new JTable(model);
         scrollpanel = new JScrollPane(table1);
         add(scrollpanel);
 
         TrainerRole trainerRole = new TrainerRole();
-        ArrayList<Member> members = trainerRole.getListOfMembers();
-        for (Member member : members){
-            String [] args = member.lineRepresentation().split(",");
-            model.addRow(new Object[] {args[0],args[1],args[2],args[3],args[4],args[5]} );
+        ArrayList<MemberClassRegistration> registrations = trainerRole.getListOfRegistrations();
+        for (MemberClassRegistration register : registrations){
+            String [] args = register.lineRepresentation().split(",");
+            model.addRow(new Object[] {args[0],args[1],args[2]} );
         }
         setVisible(true);
     }
-
 
 }
