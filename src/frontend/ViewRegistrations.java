@@ -29,7 +29,7 @@ public class ViewRegistrations extends JFrame{
         ArrayList<MemberClassRegistration> registrations = trainer.getListOfRegistrations();
         for (MemberClassRegistration register : registrations){
             String [] args = register.lineRepresentation().split(",");
-            model.addRow(new Object[] {args[0],args[1],args[2]} );
+            model.addRow(new Object[] {args[0],args[1],args[3]} );
         }
         setVisible(true);
     }
