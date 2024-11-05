@@ -11,7 +11,7 @@ public class ViewMembers extends JFrame{
     private JTable table1;
     private JScrollPane scrollpanel;
 
-    public ViewMembers() {
+    public ViewMembers(TrainerRole trainer) {
         setTitle("View Trainers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
@@ -27,9 +27,7 @@ public class ViewMembers extends JFrame{
         table1 = new JTable(model);
         scrollpanel = new JScrollPane(table1);
         add(scrollpanel);
-
-        TrainerRole trainerRole = new TrainerRole();
-        ArrayList<Member> members = trainerRole.getListOfMembers();
+        ArrayList<Member> members = trainer.getListOfMembers();
         for (Member member : members){
             String [] args = member.lineRepresentation().split(",");
             model.addRow(new Object[] {args[0],args[1],args[2],args[3],args[4],args[5]} );

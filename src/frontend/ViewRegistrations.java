@@ -1,6 +1,5 @@
 package frontend;
 
-import backend.Member;
 import backend.MemberClassRegistration;
 import backend.TrainerRole;
 
@@ -13,7 +12,7 @@ public class ViewRegistrations extends JFrame{
     private JScrollPane scrollpanel;
     private JPanel Container15;
 
-    public ViewRegistrations() {
+    public ViewRegistrations(TrainerRole trainer) {
         setTitle("View Trainers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
@@ -27,8 +26,7 @@ public class ViewRegistrations extends JFrame{
         scrollpanel = new JScrollPane(table1);
         add(scrollpanel);
 
-        TrainerRole trainerRole = new TrainerRole();
-        ArrayList<MemberClassRegistration> registrations = trainerRole.getListOfRegistrations();
+        ArrayList<MemberClassRegistration> registrations = trainer.getListOfRegistrations();
         for (MemberClassRegistration register : registrations){
             String [] args = register.lineRepresentation().split(",");
             model.addRow(new Object[] {args[0],args[1],args[2]} );

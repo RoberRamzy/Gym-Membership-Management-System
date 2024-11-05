@@ -59,5 +59,23 @@ public class TrainerRoleWindow extends JFrame{
                 trainer.logout();
             }
         });
+        ViewMembers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewMembers viewMembers=new ViewMembers(trainer);
+            }
+        });
+        ViewClasses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewClasses viewClasses=new ViewClasses(trainer);
+            }
+        });
+        ViewRegistration.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewRegistrations viewRegistration=new ViewRegistrations(trainer);
+            }
+        });
     }
 }
