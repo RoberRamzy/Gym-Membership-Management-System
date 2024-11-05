@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Main;
+import backend.TrainerRole;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +26,14 @@ public class MainWindow extends JFrame{
                 dispose();
                 AdminLogin adminLogin=new AdminLogin();
                 
+            }
+        });
+
+        TrainerRole.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                TrainerLogin trainerLogin=new TrainerLogin();
             }
         });
     }

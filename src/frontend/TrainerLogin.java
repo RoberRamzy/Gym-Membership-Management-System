@@ -27,12 +27,14 @@ public class TrainerLogin extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String username=UsernameInput.getText();
                 String password=new String(trainerPass.getPassword());
-                System.out.println("entered");
+
                 if(username.isEmpty()||password.isEmpty()){
                     JOptionPane.showMessageDialog(container7,"Some fields are empty","Message",JOptionPane.WARNING_MESSAGE);
 
                 }else if(username.equals(TRAINER_USERNAME)&&password.equals(TRAINER_PASSWORD)){
                     JOptionPane.showMessageDialog(container7,"Welcome");
+                    dispose();
+                    TrainerRoleWindow trainerRoleWindow=new TrainerRoleWindow();
 
                 }else {
                     JOptionPane.showMessageDialog(container7,"Wrong username or password");
